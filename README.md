@@ -223,3 +223,42 @@ class MyClass: SomeProtocol {
     }
 }
 ```
+
+## 8. Tuples:
+Tuples enable you to create and pass around groupings of values. You can use a tuple to return multiple values from a function as a single compound value.
+
+There are two types of Tuple:
+1. Named Tuple:
+In Named tuple we assign individual names to each elements.
+
+```ruby
+Define it like:
+
+let nameAndAge = (name:"Midhun", age:7)
+
+Access the values like:
+
+nameAndAge.name
+nameAndAge.age
+```
+
+2. Unnamed Tuple:
+In unnamed tuple we don't specify the name for it's elements.
+
+```ruby
+Define it like:
+
+let nameAndAge = ("Midhun", 7)
+
+Access the values like:
+
+nameAndAge.0
+nameAndAge.1
+```
+
+### Difference Tuple & Dictionary:
+- If you need to return multiple values from a method you can use tuple.
+- Tuple won't need any key value pairs like Dictionary.
+- A tuple can contain only the predefined number of values, in dictionary there is no such limitation.
+- A tuple can contain different values with different datatype while a dictionary can contain only one datatype value at a time.
+- Tuples are particularly useful for returning multiple values from a function. A dictionary can be used as a model object.
