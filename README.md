@@ -262,3 +262,17 @@ nameAndAge.1
 - A tuple can contain only the predefined number of values, in dictionary there is no such limitation.
 - A tuple can contain different values with different datatype while a dictionary can contain only one datatype value at a time.
 - Tuples are particularly useful for returning multiple values from a function. A dictionary can be used as a model object.
+
+## 9. Generics:
+Generic code enables you to write flexible, reusable functions and types that can work with any type, subject to requirements that you define. You can write code that avoids duplication and expresses its intent in a clear, abstracted manner.
+
+Example:
+```ruby
+func getValue<T>(arr: [T]) -> T {
+    return arr[0]
+}
+
+print(getValue(arr: [1, 2, 3])) // prints 1
+print(getValue(arr: ["Car", "Bat", "Mobile"])) // prints Car
+print(getValue(arr: [1.1, 2.1, 3.1])) // prints 1.1
+```
