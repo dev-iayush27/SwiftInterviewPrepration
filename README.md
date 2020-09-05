@@ -1,6 +1,6 @@
 # Swift Interview Prepration
 
-## Execution states of app
+## 1. Execution states of app
 
 ### a. Not running: 
 This means the app has not launched yet. Or the app has been terminated by the user. Also there is a possibility to the app has been terminated by the OS.
@@ -17,3 +17,17 @@ Once the app moved to background it will be transited to the Background state. I
 ### e. Suspended: 
 At this app state, your app remains on the memory. But not executing any code.
 Since the app is not executing the code, the battery life is not affected by the application. But if any running app needs memory and the system is low on memory, the OS will terminate some suspended apps to free the memory.
+
+## 2. AppDelegate Life Cycle Methods:
+
+### application:didFinishLaunchingWithOptions
+
+### applicationWillEnterForeground
+
+### applicationDidBecomeActive
+
+### applicationWillResignActive
+
+### applicationDidEnterBackground
+
+### applicationWillTerminate
