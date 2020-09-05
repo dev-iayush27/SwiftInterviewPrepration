@@ -71,15 +71,15 @@ This method is called after the VC’s view has been removed from the view hiera
 ## 4. Class and Struct:
 
 ### Similarities:
-a. Defines properties to store values.
-b. Defines methods to provide functionality.
-c. Defines initializers to set up their initial state.
-d. Conforms to protocols.
+- Defines properties to store values.
+- Defines methods to provide functionality.
+- Defines initializers to set up their initial state.
+- Conforms to protocols.
 
 ### Differences:
-a. Inheritance enables one class to inherit the characteristics of another.
-b. Deinitializer enables an instance of a class￼.
-c. Reference counting allows more than one reference to a class instance.
-d. Class is reference type but struct is value type.￼￼
-e. Instance of a class is stored in heap memory and instance of struct is stored in stack memory.
-f. Struct is faster than class.￼￼
+- Inheritance enables one class to inherit the characteristics of another.
+- Deinitializer enables an instance of a class￼.
+- Reference counting allows more than one reference to a class instance.
+- Class is reference type but struct is value type.￼￼
+- Instance of a class is stored in heap memory and instance of struct is stored in stack memory.
+- Struct is faster than class.￼￼
