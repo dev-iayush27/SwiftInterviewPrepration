@@ -93,7 +93,7 @@ A type that represents either a wrapped value or nil, the absence of a value.
 var value: String?
 ```
 
-### Optional Binding:
+### Optional Binding: (Conditional Unwrapping)
 To conditionally bind the wrapped value of an Optional instance to a new variable, use one of the optional binding control structures, including if let, guard let, and switch.
 
 ```ruby
@@ -133,13 +133,13 @@ print(shapePath)
 // Prints "/images/default.png"
 ```
 
-### Unconditional Unwrapping:
+### Unconditional Unwrapping: (Implicitly Unwrapping)
 When you’re certain that an instance of Optional contains a value, you can unconditionally unwrap the value by using the forced unwrap operator (postfix !). For example, the result of the failable Int initializer is unconditionally unwrapped in the example below.
 
 ```ruby
-let number = Int("42")!
-print(number)
-// Prints "42"
+let age: Int! = 20
+print(age)
+// Prints 20
 ```
 
 You can also perform unconditional optional chaining by using the postfix ! operator.
@@ -151,3 +151,25 @@ print(isPNG)
 ```
 
 Unconditionally unwrapping a nil instance with ! triggers a runtime error.
+
+### Unwrapping via Type Casting:
+In this way, Sometimes different types of values ​​can be defined during the runtime of the application. If you don’t be careful, your application may be crash.
+
+```ruby
+var userData: Any? = 1
+
+if userData as? String != nil {
+    print("userData is defined as a String.")
+} else if userData as? Int != nil {
+    print("userData is defined as an Integer.")
+}
+```
+
+### Forced Unwrapping:
+You can unwrap your Optional variable with “!” operator but it’s a less safe wrapping way, you have to be sure of variable contains value or not. If you do not use the forcibly unwrapping method in the right place, your application may be crash.
+
+```ruby
+var moviesCount: Int?
+print(moviesCount!)
+// Fatal error: Unexpectedly found nil while unwrapping an Optional value
+```
