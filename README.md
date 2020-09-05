@@ -104,3 +104,50 @@ if let starPath = imagePaths["star"] {
 }
 // Prints "The star image is at '/glyphs/star.png'"
 ```
+
+### Optional Chaining:
+To safely access the properties and methods of a wrapped instance, use the postfix optional chaining operator (postfix ?). The following example uses optional chaining to access the hasSuffix(_:) method on a String? instance.
+
+```ruby
+if imagePaths["star"]?.hasSuffix(".png") == true {
+    print("The star image is in PNG format")
+}
+// Prints "The star image is in PNG format"
+```
+
+### Using the Nil-Coalescing Operator:
+Use the nil-coalescing operator (??) to supply a default value in case the Optional instance is nil. Here a default path is supplied for an image that is missing from imagePaths.
+
+```ruby
+let defaultImagePath = "/images/default.png"
+let heartPath = imagePaths["heart"] ?? defaultImagePath
+print(heartPath)
+// Prints "/images/default.png"
+```
+
+The ?? operator also works with another Optional instance on the right-hand side. As a result, you can chain multiple ?? operators together.
+
+```ruby
+let shapePath = imagePaths["cir"] ?? imagePaths["squ"] ?? defaultImagePath
+print(shapePath)
+// Prints "/images/default.png"
+```
+
+### Unconditional Unwrapping:
+When you’re certain that an instance of Optional contains a value, you can unconditionally unwrap the value by using the forced unwrap operator (postfix !). For example, the result of the failable Int initializer is unconditionally unwrapped in the example below.
+
+```ruby
+let number = Int("42")!
+print(number)
+// Prints "42"
+```
+
+You can also perform unconditional optional chaining by using the postfix ! operator.
+
+```ruby
+let isPNG = imagePaths["star"]!.hasSuffix(".png")
+print(isPNG)
+// Prints "true"
+```
+
+Unconditionally unwrapping a nil instance with ! triggers a runtime error.
