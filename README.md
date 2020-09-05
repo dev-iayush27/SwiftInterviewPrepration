@@ -46,3 +46,24 @@ This method is called when your app enters in background state after becoming in
 this method is called when your app is about to be purged from memory. Call any final cleanups here.
 
 
+## 3. View Controller Life Cycle Methods:
+
+### viewDidLoad:
+This Method is loaded once in view controller life cycle. Its Called When all the view are loaded. You Can do Some common task in this method:
+1.Network call which need Once.
+2.User Interface
+3.Others Task Those are Need to do Once
+Note: This Method Call before the bound are defined and rotation happen.So its Risky to work view size in this method.
+
+### viewWillAppear:
+This Method is called every time before the view are visible to and before any animation are configured.
+
+### viewDidAppear:
+This Method is called after the view present on the screen. Usually save data to core data or start animation or start playing a video or a sound, or to start collecting data from the network This type of task good for this method.
+
+### viewWillDisappear:
+This method called before the view are remove from the view hierarchy. The View are Still on view hierarchy but not removed yet . any unload animations haven’t been configured yet. Add code here to handle timers, hide the keyboard, cancel network requests, revert any changes to the parent UI. Also, this is an ideal place to save state.
+
+### viewDidDisappear:
+This method is called after the VC’s view has been removed from the view hierarchy. Use this method to stop listening for notifications or device sensors.
+
