@@ -232,11 +232,11 @@ There are two types of Tuple:
 In Named tuple we assign individual names to each elements.
 
 ```ruby
-Define it like:
+// Define it like:
 
 let nameAndAge = (name:"Midhun", age:7)
 
-Access the values like:
+// Access the values like:
 
 nameAndAge.name
 nameAndAge.age
@@ -246,17 +246,17 @@ nameAndAge.age
 In unnamed tuple we don't specify the name for it's elements.
 
 ```ruby
-Define it like:
+// Define it like:
 
 let nameAndAge = ("Midhun", 7)
 
-Access the values like:
+// Access the values like:
 
 nameAndAge.0
 nameAndAge.1
 ```
 
-### Difference Tuple & Dictionary:
+### Difference between Tuples & Dictionary:
 - If you need to return multiple values from a method you can use tuple.
 - Tuple won't need any key value pairs like Dictionary.
 - A tuple can contain only the predefined number of values, in dictionary there is no such limitation.
