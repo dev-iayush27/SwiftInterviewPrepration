@@ -83,3 +83,24 @@ This method is called after the VC’s view has been removed from the view hiera
 - Class is reference type but struct is value type.
 - Instance of a class is stored in heap memory and instance of struct is stored in stack memory.
 - Struct is faster than class.
+
+
+## 5. Optional:
+
+A type that represents either a wrapped value or nil, the absence of a value.
+
+```ruby
+var value: String?
+```
+
+### Optional Binding:
+To conditionally bind the wrapped value of an Optional instance to a new variable, use one of the optional binding control structures, including if let, guard let, and switch.
+
+```ruby
+if let starPath = imagePaths["star"] {
+    print("The star image is at '\(starPath)'")
+} else {
+    print("Couldn't find the star image")
+}
+// Prints "The star image is at '/glyphs/star.png'"
+```
