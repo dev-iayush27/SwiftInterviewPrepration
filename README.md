@@ -78,8 +78,8 @@ This method is called after the VC’s view has been removed from the view hiera
 
 ### Differences:
 - Inheritance enables one class to inherit the characteristics of another.
-- Deinitializer enables an instance of a class￼.
+- Deinitializer enables an instance of a class.
 - Reference counting allows more than one reference to a class instance.
-- Class is reference type but struct is value type.￼￼
+- Class is reference type but struct is value type.
 - Instance of a class is stored in heap memory and instance of struct is stored in stack memory.
-- Struct is faster than class.￼￼
+- Struct is faster than class.
