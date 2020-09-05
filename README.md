@@ -105,6 +105,13 @@ if let starPath = imagePaths["star"] {
 // Prints "The star image is at '/glyphs/star.png'"
 ```
 
+```ruby
+ guard let starPath = imagePaths["star"] else {
+     return
+  }
+ print("The star image is at '\(starPath)'")
+```
+
 ### Optional Chaining:
 To safely access the properties and methods of a wrapped instance, use the postfix optional chaining operator (postfix ?). The following example uses optional chaining to access the hasSuffix(_:) method on a String? instance.
 
