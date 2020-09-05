@@ -1,6 +1,6 @@
 # Swift Interview Prepration
 
-## 1. Execution states of app
+## 1. Execution states of app:
 
 ### a. Not running: 
 This means the app has not launched yet. Or the app has been terminated by the user. Also there is a possibility to the app has been terminated by the OS.
@@ -67,3 +67,19 @@ This method called before the view are remove from the view hierarchy. The View 
 ### viewDidDisappear:
 This method is called after the VC’s view has been removed from the view hierarchy. Use this method to stop listening for notifications or device sensors.
 
+
+## 4. Class and Struct:
+
+### Similarities:
+a. Defines properties to store values.
+b. Defines methods to provide functionality.
+c. Defines initializers to set up their initial state.
+d. Conforms to protocols.
+
+### Differences:
+a. Inheritance enables one class to inherit the characteristics of another.
+b. Deinitializer enables an instance of a class￼.
+c. Reference counting allows more than one reference to a class instance.
+d. Class is reference type but struct is value type.￼￼
+e. Instance of a class is stored in heap memory and instance of struct is stored in stack memory.
+f. Struct is faster than class.￼￼
