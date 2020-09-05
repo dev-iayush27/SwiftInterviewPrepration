@@ -180,3 +180,46 @@ var moviesCount: Int?
 print(moviesCount!)
 // Fatal error: Unexpectedly found nil while unwrapping an Optional value
 ```
+
+## 6. Delegate: 
+A delegate is an object that acts on behalf of, or in coordination with, another object when that object encounters an event in a program.
+
+## 7. Protocol:
+A protocol defines a blueprint of methods, properties, and other requirements that suit a particular task or piece of functionality. The protocol can then be adopted by a class, structure, or enumeration to provide an actual implementation of those requirements. Any type that satisfies the requirements of a protocol is said to conform to that protocol.
+
+```ruby
+protocol SomeProtocol {
+    var name: String { get set }
+    var email: String { get }
+    static var address: String { get }
+    static func someTypeMethod()
+    func anyMethod()
+}
+
+class MyClass: SomeProtocol {
+    var email: String {
+        return "ayush@gmail.com"
+    }
+    
+    func anyMethod() {
+        // write some code
+    }
+}
+```
+
+### Optional Protocol Methods:
+It is not necessary to implement that method if we were not going to use it. Swift protocols on their side do not allow optional methods. But if you are making an app for macOS, iOS, tvOS or watchOS you can add the @objc keyword at the beginning of the implementation of your protocol and add @objc follow by optional keyword before each methods you want to be optional.
+
+```ruby
+@objc protocol SomeProtocol {
+    @objc optional var age: Int { get }
+    @objc optional func getValue()
+    func anyMethod()
+}
+
+class MyClass: SomeProtocol {    
+    func anyMethod() {
+        // write some code
+    }
+}
+```
