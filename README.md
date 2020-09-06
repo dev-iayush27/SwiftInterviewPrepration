@@ -276,3 +276,15 @@ print(getValue(arr: [1, 2, 3])) // prints 1
 print(getValue(arr: ["Car", "Bat", "Mobile"])) // prints Car
 print(getValue(arr: [1.1, 2.1, 3.1])) // prints 1.1
 ```
+
+## 10. Dependency Injection:
+- Dependency Injection is often used with the intention of writing code that is loosely coupled, and thus, easier to test.
+
+- Separation of concerns:
+- Dependency injection allows us to understand our code in a much clearer way and separates our concerns. When we use dependency injection, we can see that our objects are responsible for managing and handling the given dependency.
+
+- Testing:
+- Dependency injection is great for testing.
+
+- Loosely Coupled:
+- In computing and systems design a loosely coupled system is one in which each of its components has, or makes use of, little or no knowledge of the definitions of other separate components.
