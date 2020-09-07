@@ -314,6 +314,22 @@ struct Rectangle {
 }
 ```
 
+#### Lazy Stored Properties:
+- A lazy stored property is a property whose initial value is not calculated until the first time it is used. You indicate a lazy stored property by writing the lazy modifier before its declaration.
+- You can’t use lazy with let.
+- You can’t use it with computed properties. Because, a computed property returns the value every time we try to access it after executing the code inside the computation block.
+- You can use lazy only with members of struct and class.
+- Lazy variables are not initialised atomically and so is not thread safe.
+
+```ruby
+class Test {
+    var name: String
+    lazy var greeting : String = { 
+        return “Hello \(self.name)” 
+    }()
+}
+```
+
 ### Computed Properties:
 In addition to stored properties, classes, structures, and enumerations can define computed properties, which do not actually store a value. Instead, they provide a getter and an optional setter to retrieve and set other properties and values indirectly.
 
