@@ -403,3 +403,144 @@ print(color[0]) // prints Red
 color[0] = "Brown"
 print(color[0]) // prints Brown
 ```
+
+## 15. Closure:
+￼- Self contained blocks of functionality that can be passed around and used in code.
+- It can capture and store references to any constants and variables from the current context in which they are defined￼￼.
+- Used for event handling and callbacks.
+- Can pass closure as completion handlers.￼￼
+- Closure is a reference type.￼
+
+```ruby
+let add: (Int, Int) -> Int = { (value1, value2) in
+    return (value1 + value2)
+}
+```
+
+### Types Of Closure:
+#### 1. @nonescaping Closure:
+When passing a closure as the function argument, the closure gets execute with the function’s body and returns the compiler back. As the execution ends, the passed closure goes out of scope and have no more existence in memory.
+##### Lifecycle of the @nonescaping closure:
+- Pass the closure as function argument, during the function call.
+- Do some additional work with function.
+- Function runs the closure.
+- Function returns the compiler back.
+
+```ruby
+    func getSumOf(array:[Int], handler: ((Int)->Void)) {
+        //step 2
+        var sum: Int = 0
+        for value in array {
+            sum += value
+        }
+        //step 3
+        handler(sum)
+    }
+    
+    func doSomething() {
+        //setp 1
+        self.getSumOf(array: [16,756,442,6,23]) { [weak self](sum) in
+            print(sum)
+            //step 4, finishing the execution
+        }
+    }
+//It will print the sumof all the given numbers.
+```
+
+#### 2. @escaping Closure:
+When passing a closure as the function argument, the closure is being preserve to be execute later and function’s body gets executed, returns the compiler back. As the execution ends, the scope of the passed closure exist and have existence in memory, till the closure gets executed.
+
+##### Lifecycle of the @escaping closure:
+- Pass the closure as function argument, during the function call.
+- Do some additional work with function.
+- Function executes the closure asynchronously or stored.
+- Function returns the compiler back.
+
+##### Storage: 
+When you need to preserve the closure in storage that exist in the memory, past of the calling function get executed and return the compiler back. (Like waiting for the API response)
+
+```ruby
+var complitionHandler: ((Int)->Void)?
+func getSumOf(array:[Int], handler: @escaping ((Int)->Void)) {
+    //step 2
+    //here I'm taking for loop just for example, in real case it'll be something else like API call
+    var sum: Int = 0
+    for value in array {
+        sum += value
+    }
+    //step 3
+    self.complitionHandler = handler
+}
+
+func doSomething() {
+    //setp 1
+    self.getSumOf(array: [16,756,442,6,23]) { [weak self](sum) in
+        print(sum)
+        //step 4, finishing the execution
+    }
+}
+//Here we are storing the closure for future use.
+//It will print the sumof all the passed numbers.
+```
+
+##### Asynchronous Execution: 
+When you are executing the closure asynchronously on dispatch queue, the queue will hold the closure in memory for you, to be used in future. In this case you have no idea when the closure will get executed.
+
+```ruby
+func getSumOf(array:[Int], handler: @escaping ((Int)->Void)) {
+    //step 2
+    var sum: Int = 0
+    for value in array {
+        sum += value
+    }
+    //step 3
+    Globals.delay(0.3, closure: {
+        handler(sum)
+    })
+}
+
+func doSomething() {
+    //setp 1
+    self.getSumOf(array: [16,756,442,6,23]) { [weak self](sum) in
+        print(sum)
+        //step 4, finishing the execution
+    }
+}
+//Here we are calling the closure with the delay of 0.3 seconds
+//It will print the sumof all the passed numbers.
+```
+
+#### 3. Trailing closure:
+- If you need to pass a closure expression to a function as the functions last argument.
+- A trailing closure is written after the function call’s parentheses as a final parameter.
+
+```ruby
+func makeSquareOf(digit: Int, onCompletion: (Int) -> void) {
+    let squareOfDigit = digit * digit
+    onCompletion(squareOfDigit)
+}
+```
+
+#### 4. Auto closure:
+- Parameter in a function can be replaced with a closure that takes no parameter and returns back a value of the same type as the parameter.
+- Such closure parameter can be marked with an @autoclosure attribute.
+
+```ruby
+func assert(_ condition: @autoclosure () -> Bool, _ message: @autoclosure () -> String) {
+    if condition() {
+        print(message())
+    }
+}
+
+func conditionOne() -> Bool {
+    return true
+}
+
+func phrase() -> String {
+    return "Text"
+}
+
+assert(true, "Hello")
+assert(false, "Good bye")
+assert(conditionOne(), phrase())
+```
