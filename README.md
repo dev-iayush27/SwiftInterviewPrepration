@@ -379,3 +379,26 @@ struck Account {
     }
 }
 ```
+
+## 14. Subscripts:
+Classes, structures, and enumerations can define subscripts, which are shortcuts for accessing the member elements of a collection, list, or sequence. You use subscripts to set and retrieve values by index without needing separate methods for setting and retrieval. 
+
+```ruby
+class Colors {
+    var arrColor = ["Red", "Blue", "yellow"]
+    subscript(_ index: Int) -> {
+        get {
+            return arrColor[index]
+        }
+        set(newValue) {
+            self.arrColor[index] = newValue
+        }
+    }
+}
+
+var color = Colors()
+print(color[0]) // prints Red
+
+color[0] = "Brown"
+print(color[0]) // prints Brown
+```
