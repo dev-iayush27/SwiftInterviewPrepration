@@ -348,3 +348,34 @@ struct Rectangle {
     }
 }
 ```
+
+### Property Observers:
+Property observers observe and respond to changes in a property’s value. Property observers are called every time a property’s value is set, even if the new value is the same as the property’s current value.
+- willSet is called just before the value is stored.
+- didSet is called immediately after the new value is stored.
+
+```ruby
+class Account {
+    var balance: Int = 0 {
+        willSet(newbalance) {
+            print("About to set totalBalance to \(newbalance).")
+        }
+        didSet {
+            print("Send message to user for balance updated.")
+        }
+    }
+}
+```
+
+## 13. Mutating:
+In order to modify the properties of a value type, you have to use the mutating keyword in the instance method.
+
+```ruby
+struck Account {
+    var balance: Double
+    
+    mutating func addMoney(amount: Double) {
+        balance += amount
+    }
+}
+```
