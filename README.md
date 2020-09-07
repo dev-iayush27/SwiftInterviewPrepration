@@ -300,3 +300,35 @@ Access control restricts access to parts of your code from code in other source 
 ### Difference between Open and Public:
 - An open class is accessible and subclassable outside of the defining module. 
 - An open class member is accessible and overridable outside of the defining module.
+
+## 12. Properties:
+Properties associate values with a particular class, structure, or enumeration.
+
+### Stored Properties:
+In its simplest form, a stored property is a constant or variable that is stored as part of an instance of a particular class or structure. Stored properties can be either variable stored properties (introduced by the var keyword) or constant stored properties (introduced by the let keyword).
+
+```ruby
+struct Rectangle {
+    var width: Int?
+    var height: Int?
+}
+```
+
+### Computed Properties:
+In addition to stored properties, classes, structures, and enumerations can define computed properties, which do not actually store a value. Instead, they provide a getter and an optional setter to retrieve and set other properties and values indirectly.
+
+```ruby
+struct Rectangle {
+    var width: Int?
+    var height: Int?
+    var area: Int {
+        get {
+            return width * height
+        }
+        set {
+            width = 10
+            height = 20
+        }
+    }
+}
+```
