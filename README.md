@@ -544,3 +544,56 @@ assert(true, "Hello")
 assert(false, "Good bye")
 assert(conditionOne(), phrase())
 ```
+
+## 16. Higher Order Functions:
+Higher order functions are simply functions that can either accept functions or closures as arguments, or return a function/closure.
+
+### Map:
+Map can be used to loop over a collection and apply the same operation to each element in the collection.
+
+```ruby
+let arrName = ["Ayush", "Jhon", "Bob"]
+let newArr = arrName.map { $0.lowerCased() }
+print(newArr) // prints: [ayush, jhon, bob]
+```
+
+### CompactMap:
+Returns an array containing the non-nil results of calling the given transformation with each element of this sequence.
+
+```ruby
+let possibleNumbers = ["1", "2", "three", "four", "5"]
+
+let mapped: [Int?] = possibleNumbers.map { str in Int(str) }
+// [1, 2, nil, nil, 5]
+
+let compactMapped: [Int] = possibleNumbers.compactMap { str in Int(str) }
+// [1, 2, 5]
+```
+
+### FlatMap:
+Flatmap is used to flatten a collection of collections . But before flattening the collection, we can apply map to each elements.
+
+```ruby
+let name = "ayush"
+let value = name.flatMap { $0 }
+print(value) // prints: ["a", "y", "u", "s", "h"]
+```
+
+### Filter:
+Use filter to loop over a collection and return an Array containing only those elements that match an include condition.
+
+```ruby
+let arrNumber = [1, 2, 3, 4, 5]
+let arrEvenNumber = arrNumber.filter { $0 % 2 == 0 }
+print(arrEvenNumber) // prints: [2, 4]
+```
+
+### Reduce:
+Reduce is used to combine all items in a collection to create a single new value. 
+
+```ruby
+let arrNumber = [1, 2, 3, 4, 5]
+let numSum = arrNumber.reduce(0, { x, y in
+    x + y
+})
+```
