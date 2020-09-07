@@ -405,11 +405,11 @@ print(color[0]) // prints Brown
 ```
 
 ## 15. Closure:
-￼- Self contained blocks of functionality that can be passed around and used in code.
-- It can capture and store references to any constants and variables from the current context in which they are defined￼￼.
+- Self contained blocks of functionality that can be passed around and used in code.
+- It can capture and store references to any constants and variables from the current context in which they are defined.
 - Used for event handling and callbacks.
-- Can pass closure as completion handlers.￼￼
-- Closure is a reference type.￼
+- Can pass closure as completion handlers.
+- Closure is a reference type.
 
 ```ruby
 let add: (Int, Int) -> Int = { (value1, value2) in
