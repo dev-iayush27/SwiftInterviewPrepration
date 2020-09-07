@@ -381,7 +381,8 @@ struck Account {
 ```
 
 ## 14. Subscripts:
-Classes, structures, and enumerations can define subscripts, which are shortcuts for accessing the member elements of a collection, list, or sequence. You use subscripts to set and retrieve values by index without needing separate methods for setting and retrieval. 
+- Classes, structures, and enumerations can define subscripts, which are shortcuts for accessing the member elements of a collection, list, or sequence. 
+- You use subscripts to set and retrieve values by index without needing separate methods for setting and retrieval. 
 
 ```ruby
 class Colors {
