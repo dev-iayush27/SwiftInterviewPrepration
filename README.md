@@ -596,4 +596,5 @@ let arrNumber = [1, 2, 3, 4, 5]
 let numSum = arrNumber.reduce(0, { x, y in
     x + y
 })
+print(numSum) // prints: 15
 ```
