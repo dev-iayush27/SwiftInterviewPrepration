@@ -113,9 +113,15 @@ if let starPath = imagePaths["star"] {
 ```
 
 ### Optional Chaining:
-To safely access the properties and methods of a wrapped instance, use the postfix optional chaining operator (postfix ?). The following example uses optional chaining to access the hasSuffix(_:) method on a String? instance.
+To safely access the properties and methods of a wrapped instance, use the postfix optional chaining operator (postfix ?). The following example uses optional chaining:
 
 ```ruby
+var name: String?
+let myName = name?.uppercased()
+// let myName = name?.uppercased().someOptionalValue?.someOtherOptionalValue?.whatever
+
+//or
+
 if imagePaths["star"]?.hasSuffix(".png") == true {
     print("The star image is in PNG format")
 }
