@@ -604,3 +604,29 @@ let numSum = arrNumber.reduce(0, { x, y in
 })
 print(numSum) // prints: 15
 ```
+
+## 17. Core Data:
+Core data is used to manage the model layer object in our application. You can treat Core Data as a framework to save, track, modify and filter the data within iOS apps, however, Core Data is not a Database.
+
+#### Object Graph:
+An object graph is nothing more than a collection of objects that are connected with one another.
+The Core Data framework takes care of managing the life cycle of the objects in the object graph.
+
+#### NSManagedObjectContext:
+The NSManagedObjectContext object manages a collection of model objects, instances of the NSManagedObject class.
+
+#### Core Data Stack:
+- Managed object model.
+- Managed object context.
+- Persistent store coordinator.
+- Persistent store (storage).
+
+#### Abstract Entity:
+An Entity can be abstract, in which case it is never directly attached to a managed object.
+An abstract object (in programming) or entity (in Core Data) is an object or entity that is never instantiated.
+
+#### FetchedResultcontroller:
+A controller that you use to manage the results of a Core Data fetch request and display data to the user in UITableView.
+
+#### NSManagedObjectId:
+A compact, universal identifier for a managed object.
