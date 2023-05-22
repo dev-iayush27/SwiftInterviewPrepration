@@ -193,8 +193,6 @@ A delegate is an object that acts on behalf of, or in coordination with, anothe
 ## 7. Protocol:
 A protocol defines a blueprint of methods, properties, and other requirements that suit a particular task or piece of functionality. The protocol can then be adopted by a class, structure, or enumeration to provide an actual implementation of those requirements. Any type that satisfies the requirements of a protocol is said to conform to that protocol.
 
-Properties in protocol are not computed properties, to acheive computed property for protocol we have to use extension for that protocol.
-
 ```ruby
 protocol SomeProtocol {
     var name: String { get set }
@@ -211,6 +209,20 @@ class MyClass: SomeProtocol {
     
     func anyMethod() {
         // write some code
+    }
+}
+```
+
+Properties in protocol are not computed properties, to acheive computed property for protocol we have to use extension for that protocol.
+
+```ruby
+protocol Employee {
+    var experience: Int { get set }
+}
+
+extension Employee {
+    var salary: String {
+        return experience > 5 ? "20,00,000" : "15,00,000"
     }
 }
 ```
