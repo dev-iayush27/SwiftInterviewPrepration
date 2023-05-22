@@ -87,7 +87,7 @@ This method is called after the VC’s view has been removed from the view hiera
 
 ## 5. Optional:
 
-A type that represents either a wrapped value or nil, the absence of a value.
+A type that represents either a wrapped value or nil, the absence of a value. Enum is optional type, it has 2 values: some and none.
 
 ```ruby
 var value: String?
@@ -192,6 +192,8 @@ A delegate is an object that acts on behalf of, or in coordination with, anothe
 
 ## 7. Protocol:
 A protocol defines a blueprint of methods, properties, and other requirements that suit a particular task or piece of functionality. The protocol can then be adopted by a class, structure, or enumeration to provide an actual implementation of those requirements. Any type that satisfies the requirements of a protocol is said to conform to that protocol.
+
+Properties in protocol are not computed properties, to acheive computed property for protocol we have to use extension for that protocol.
 
 ```ruby
 protocol SomeProtocol {
