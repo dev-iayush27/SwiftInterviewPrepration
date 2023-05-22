@@ -84,6 +84,34 @@ This method is called after the VC’s view has been removed from the view hiera
 - Instance of a class is stored in heap memory and instance of struct is stored in stack memory.
 - Struct is faster than class.
 
+#### When struct contains a property of class type, it's value will be copied, or it will refer to the same object?
+It will refer to same object.
+```ruby
+class Employee {
+    var name: String
+    
+    init(name: String) {
+        self.name = name
+    }
+}
+
+struct Company {
+    var salary: String
+    var employee: Employee
+}
+
+let company1 = Company(salary: "25,00,000", employee: Employee(name: "Ayush"))
+var company2 = company1
+
+company2.salary = "30,00,000"
+company2.employee.name = "Neelima"
+
+print(company1.salary) ---> 25,00,000
+print(company1.employee.name) ---> Neelima
+
+print(company2.salary) ---> 30,00,000
+print(company2.employee.name) ---> Neelima
+```
 
 ## 5. Optional:
 
