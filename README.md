@@ -49,7 +49,7 @@ this method is called when your app is about to be purged from memory. Call any 
 ## 3. View Controller Life Cycle Methods:
 
 ### viewDidLoad:
-This Method is loaded once in view controller life cycle. Its Called When all the view are loaded. You Can do Some common task in this method:
+This Method is loaded once in view controller life cycle. Its Called When all the view are loaded. It's called When content view is created in memory. You Can do Some common task in this method:
 1.Network call which need Once.
 2.User Interface
 3.Others Task Those are Need to do Once
