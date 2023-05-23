@@ -83,6 +83,16 @@ This method is called after the VC’s view has been removed from the view hiera
 - Class is reference type but struct is value type.
 - Instance of a class is stored in heap memory and instance of struct is stored in stack memory.
 - Struct is faster than class.
+- Struct is thread safe as each thread has it's own stack. But class is not thread safe as global memory space is needed for reference type.
+- In struct, the amount of memory required can be calculated at compile time. But in class the amount of memory required can not be calculated at compile time.
+- In struct, cost of allocation/deallocation is less, because stack pointer is to be moved. (Last in first out)
+
+#### When should you use class?
+- Objective-C interobrability.
+- Copying doesn’t make sense.
+- Shared mutable state is needed. - Ex. AppDelegate
+- Need to control the identity.
+- Inheritance is needed (but if you can use POP, as an alternative, go for Struct.)
 
 #### When struct contains a property of class type, it's value will be copied, or it will refer to the same object?
 It will refer to same object.
