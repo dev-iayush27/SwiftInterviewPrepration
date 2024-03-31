@@ -738,6 +738,15 @@ let compactMapped: [Int] = possibleNumbers.compactMap { str in Int(str) }
 // [1, 2, 5]
 ```
 
+### FlatMap:
+Flatmap is used to flatten a collection of collections. But before flattening the collection, we can apply map to each elements.
+
+```ruby
+let name = "ayush"
+let value = name.flatMap { $0 }
+print(value) // prints: ["a", "y", "u", "s", "h"]
+```
+
 ### Filter:
 Use filter to loop over a collection and return an Array containing only those elements that match an include condition.
 
