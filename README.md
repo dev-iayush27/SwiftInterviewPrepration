@@ -462,7 +462,7 @@ color[0] = "Brown"
 print(color[0]) // prints Brown
 ```
 
-## 14. Memory Management: (ARC)
+## 15. Memory Management: (ARC)
 Memory management in Swift is primarily handled by Automatic Reference Counting (ARC), which automatically manages the allocation and deallocation of memory for your objects. However, it's essential to understand how ARC works and how to manage memory effectively to avoid issues like retain cycles and memory leaks.
 
 Here are some key concepts related to memory management in Swift:
@@ -572,7 +572,7 @@ Here are some key concepts related to memory management in Swift:
      ```
 By understanding these concepts and using them appropriately, you can effectively manage memory in your Swift code and avoid common memory-related issues.
 
-## 15. Closure:
+## 16. Closure:
 - Self contained blocks of functionality that can be passed around and used in code.
 - It can capture and store references to any constants and variables from the current context in which they are defined.
 - Used for event handling and callbacks.
@@ -713,7 +713,7 @@ assert(false, "Good bye")
 assert(conditionOne(), phrase())
 ```
 
-## 16. Higher Order Functions:
+## 17. Higher Order Functions:
 Higher order functions are simply functions that can either accept functions or closures as arguments, or return a function/closure.
 
 ### Map:
@@ -738,15 +738,6 @@ let compactMapped: [Int] = possibleNumbers.compactMap { str in Int(str) }
 // [1, 2, 5]
 ```
 
-### FlatMap:
-Flatmap is used to flatten a collection of collections . But before flattening the collection, we can apply map to each elements.
-
-```ruby
-let name = "ayush"
-let value = name.flatMap { $0 }
-print(value) // prints: ["a", "y", "u", "s", "h"]
-```
-
 ### Filter:
 Use filter to loop over a collection and return an Array containing only those elements that match an include condition.
 
@@ -757,7 +748,7 @@ print(arrEvenNumber) // prints: [2, 4]
 ```
 
 ### Reduce:
-Reduce is used to combine all items in a collection to create a single new value. 
+Reduce is used to combine all items in a collection to create a single new value.
 
 ```ruby
 let arrNumber = [1, 2, 3, 4, 5]
@@ -767,7 +758,7 @@ let numSum = arrNumber.reduce(0, { x, y in
 print(numSum) // prints: 15
 ```
 
-## 17. Core Data:
+## 18. Core Data:
 Core data is used to manage the model layer object in our application. You can treat Core Data as a framework to save, track, modify and filter the data within iOS apps, however, Core Data is not a Database.
 
 #### Object Graph:
