@@ -462,6 +462,116 @@ color[0] = "Brown"
 print(color[0]) // prints Brown
 ```
 
+## 14. Memory Management: (ARC)
+Memory management in Swift is primarily handled by Automatic Reference Counting (ARC), which automatically manages the allocation and deallocation of memory for your objects. However, it's essential to understand how ARC works and how to manage memory effectively to avoid issues like retain cycles and memory leaks.
+
+Here are some key concepts related to memory management in Swift:
+
+1. **Automatic Reference Counting (ARC):**
+   - Swift uses ARC to track and manage your app's memory usage.
+   - ARC keeps track of how many references exist to each instance of a class. When the number of references becomes zero, ARC deallocates the instance's memory.
+
+2. **Strong References:**
+   - By default, Swift uses strong references when you create instances of classes.
+   - A strong reference means that an object remains in memory as long as at least one strong reference to it exists.
+   - Example:
+     ```swift
+     class Person {
+         var name: String
+         init(name: String) {
+             self.name = name
+         }
+     }
+
+     var person1: Person? = Person(name: "Alice")
+     var person2 = person1
+     person1 = nil // person1's reference is set to nil, but person2 still holds a strong reference
+     ```
+
+3. **Weak References:**
+   - Weak references are used to avoid retain cycles, which can lead to memory leaks.
+   - Weak references don't keep a strong hold on the instance they reference. If the instance is deallocated, a weak reference automatically becomes nil.
+   - Example:
+     ```swift
+     class Person {
+         var name: String
+         weak var friend: Person?
+         init(name: String) {
+             self.name = name
+         }
+     }
+
+     var alice: Person? = Person(name: "Alice")
+     var bob: Person? = Person(name: "Bob")
+
+     alice?.friend = bob
+     bob?.friend = alice // Without weak references, this would create a retain cycle
+     alice = nil // Both alice and bob are deallocated because of the weak reference
+     bob = nil
+     ```
+
+4. **Unowned References:**
+   - Unowned references are similar to weak references but assume that the reference will always point to a valid instance.
+   - Unlike weak references, unowned references don't become nil if the instance they reference is deallocated. This can lead to crashes if the referenced instance is accessed after deallocation.
+   - Example:
+     ```swift
+     class Apartment {
+         var number: Int
+         var tenant: Person?
+
+         init(number: Int) {
+             self.number = number
+         }
+     }
+
+     class Person {
+         var name: String
+         var apartment: Apartment?
+
+         init(name: String) {
+             self.name = name
+         }
+     }
+
+     var alice: Person? = Person(name: "Alice")
+     var apartment: Apartment? = Apartment(number: 123)
+
+     alice?.apartment = apartment
+     apartment?.tenant = alice
+
+     alice = nil // apartment still has a reference to alice through the unowned reference
+     ```
+
+5. **Capture Lists and Closures:**
+   - When using closures that capture values from their surrounding context, you may need to use capture lists to avoid retain cycles.
+   - Capture lists specify how values are captured by a closure, using `[weak self]` or `[unowned self]` to prevent strong reference cycles.
+   - Example:
+     ```swift
+     class SomeClass {
+         var closure: (() -> Void)?
+
+         func setupClosure() {
+             closure = { [weak self] in
+                 self?.doSomething()
+             }
+         }
+
+         func doSomething() {
+             print("Doing something")
+         }
+
+         deinit {
+             print("SomeClass instance deallocated")
+         }
+     }
+
+     var someInstance: SomeClass? = SomeClass()
+     someInstance?.setupClosure()
+     someInstance?.closure?() // The closure is executed, and it doesn't create a strong reference cycle
+     someInstance = nil // SomeClass instance deallocated
+     ```
+By understanding these concepts and using them appropriately, you can effectively manage memory in your Swift code and avoid common memory-related issues.
+
 ## 15. Closure:
 - Self contained blocks of functionality that can be passed around and used in code.
 - It can capture and store references to any constants and variables from the current context in which they are defined.
